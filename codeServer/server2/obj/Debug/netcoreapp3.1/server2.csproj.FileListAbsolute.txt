@@ -1,0 +1,14 @@
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.csproj.AssemblyReference.cache
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.AssemblyInfoInputs.cache
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.AssemblyInfo.cs
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.csproj.CoreCompileInputs.cache
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\bin\Debug\netcoreapp3.1\server2.exe
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\bin\Debug\netcoreapp3.1\server2.deps.json
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\bin\Debug\netcoreapp3.1\server2.runtimeconfig.json
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\bin\Debug\netcoreapp3.1\server2.runtimeconfig.dev.json
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\bin\Debug\netcoreapp3.1\server2.dll
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\bin\Debug\netcoreapp3.1\server2.pdb
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.dll
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.pdb
+C:\Users\rob-d\Desktop\five\OS\курсач\коды\server2\obj\Debug\netcoreapp3.1\server2.genruntimeconfig.cache

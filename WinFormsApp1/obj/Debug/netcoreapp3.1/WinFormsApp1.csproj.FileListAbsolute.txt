@@ -1,0 +1,16 @@
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.csproj.AssemblyReference.cache
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.csproj.GenerateResource.cache
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.AssemblyInfoInputs.cache
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.AssemblyInfo.cs
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.exe
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.deps.json
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.runtimeconfig.json
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.runtimeconfig.dev.json
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.dll
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.pdb
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\ClientOs.Form1.resources
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.dll
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.pdb
+C:\Users\rob-d\Desktop\five\OS\курсач\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.genruntimeconfig.cache

@@ -1,0 +1,423 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.Diagnostics;
+using System.Threading;
+
+namespace ClientOs
+{
+    public partial class Form1 : Form
+    {
+        public static int port = 9305;
+        public static int numb = 1;
+        public static bool inloop = false;
+        public static string lastMSG = " ";
+        public static string forset = "";
+        public static string uslov = "";
+
+
+        public static string address = "127.0.0.1";
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)//connect 1 ser
+        {
+            ConServеtwo();
+        }
+
+        public void ConServеtwo()
+        {
+            address = "127.0.0.1";
+            port = 9305;
+            try
+            {
+                IPEndPoint ipPoint1 = new IPEndPoint(IPAddress.Parse(address), port);
+                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                // подключаемся к удаленному хосту
+                socket.Connect(ipPoint1);
+                string message = "GetPort!" + numb;
+                byte[] dataBuf = Encoding.Unicode.GetBytes(message);
+                socket.Send(dataBuf);
+
+                // получаем ответ
+                dataBuf = new byte[256]; // буфер для ответа
+                StringBuilder strBuilder = new StringBuilder();
+                int bytes = 0; // количество полученных байт
+
+                do
+                {
+                    bytes = socket.Receive(dataBuf, dataBuf.Length, 0);
+                    strBuilder.Append(Encoding.Unicode.GetString(dataBuf, 0, bytes));
+                }
+                while (socket.Available > 0);
+
+                port = int.Parse(strBuilder.ToString());
+                // закрываем сокет
+                mainTextBox1.Text += "Подключение открылось на порту : " + strBuilder.ToString()  + "\n";
+                socket.Shutdown(SocketShutdown.Both);
+                socket.Close();
+            }
+            catch (Exception ex)
+            {
+                mainTextBox1.Text += ex.Message + "\n";
+            }
+
+        }
+
+        public void viklSer2()
+        {
+            address = "127.0.0.1";
+            port = 9305;
+            try
+            {
+                IPEndPoint ipPointForFirstServ = new IPEndPoint(IPAddress.Parse(address), port);
+                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                // подключаемся к удаленному хосту
+                socket.Connect(ipPointForFirstServ);
+
+                string message = "brkpt!" + numb;
+                byte[] data = Encoding.Unicode.GetBytes(message);
+                socket.Send(data);
+
+                // получаем ответ
+                data = new byte[1024]; // буфер для ответа
+                StringBuilder builder = new StringBuilder();
+                int bytes = 0; // количество полученных байт
+                mainTextBox1.Text += bytes;
+                do
+                {
+
+                    bytes = socket.Receive(data, data.Length, 0);
+                    mainTextBox1.Text += bytes;
+                   builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                }
+                while (socket.Available > 0);
+                mainTextBox1.Text += "Подключение завершилось на порту : "+ builder.ToString() + "\n";
+                // закрываем сокет
+                socket.Shutdown(SocketShutdown.Both);
+                socket.Close();
+            }
+            catch (Exception ex)
+            {
+               mainTextBox1.Text += ex.Message + "\n";
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)//connect 2 ser
+        {
+            ConServFitst();
+        }
+
+        public void ConServFitst()
+        {
+            address = "127.0.0.2";
+            port = 9305;
+            try
+            {
+                IPEndPoint ipPoint1 = new IPEndPoint(IPAddress.Parse(address), port);
+                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                // подключаемся к удаленному хосту
+                socket.Connect(ipPoint1);
+                string message = "GetPort!" + numb;
+                byte[] data = Encoding.Unicode.GetBytes(message);
+                socket.Send(data);
+
+                // получаем ответ
+                data = new byte[256]; // буфер для ответа
+                StringBuilder strBuilder = new StringBuilder();
+                int bytes = 0; // количество полученных байт
+
+                do
+                {
+                    bytes = socket.Receive(data, data.Length, 0);
+                    strBuilder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                }
+                while (socket.Available > 0);
+
+                port = int.Parse(strBuilder.ToString());
+                // закрываем сокет
+                mainTextBox1.Text += "Подключение открылось на порту : " + strBuilder.ToString() + "\n";
+                socket.Shutdown(SocketShutdown.Both);
+                socket.Close();
+            }
+            catch (Exception ex)
+            {
+                mainTextBox1.Text += ex.Message + "\n";
+            }
+
+        }
+
+        public void viklServ1()
+        {
+            address = "127.0.0.2";
+            port = 9305;
+            try
+            {
+                IPEndPoint ipPoint1 = new IPEndPoint(IPAddress.Parse(address), port);
+                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                // подключаемся к удаленному хосту
+                socket.Connect(ipPoint1);
+
+                string message = "brkpt!" + numb;
+                byte[] data = Encoding.Unicode.GetBytes(message);
+                socket.Send(data);
+
+                // получаем ответ
+                data = new byte[256]; // буфер для ответа
+                StringBuilder builder = new StringBuilder();
+                int bytes = 0; // количество полученных байт
+
+                do
+                {
+                    bytes = socket.Receive(data, data.Length, 0);
+                    builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                }
+                while (socket.Available > 0);
+                mainTextBox1.Text += "Подключение завершилось на порту : " + builder.ToString() + "\n";
+                // закрываем сокет
+                socket.Shutdown(SocketShutdown.Both);
+                socket.Close();
+            }
+            catch (Exception ex)
+            {
+                mainTextBox1.Text += ex.Message + "\n";
+            }
+        }
+
+
+
+        private void button3_Click(object sender, EventArgs e)//send 1
+        {
+            try
+            {
+                Serv2(address, port);
+                if (uslov.Equals("1байт") || uslov.Equals("1килобайт") || uslov.Equals("1мегабайт") || uslov.Equals("1гигабайт") || lastMSG.Equals(forset)) { } else { 
+                mainTextBox1.Text += forset;
+               lastMSG = forset;
+                }
+            }
+            catch (Exception ex)
+            {
+                mainTextBox1.Text = ex.Message + "\n";
+            }
+        }
+
+        public void Serv2(string address1, int port1)
+        {
+            IPEndPoint ipPoint1 = new IPEndPoint(IPAddress.Parse(address1), port1);
+            Socket socket1 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            string message;
+            byte[] data;
+            int bytes, siz;
+            StringBuilder builder = new StringBuilder();
+
+            // подключаемся к удаленному хосту
+            socket1.Connect(ipPoint1);
+            if (!takeTextBox2.Text.Equals(""))
+            {
+                switch (takeTextBox2.Text)
+                {
+                    case "байт":
+                        siz = 1;
+                        break;
+                    case "килобайт":
+                        siz = 2;
+                        break;
+                    case "мегабайт":
+                        siz = 3;
+                        break;
+                    case "гигабайт":
+                        siz = 4;
+                        break;
+                    case "1байт":
+                        siz = 5;
+                        break;
+                    case "1килобайт":
+                        siz = 6;
+                        break;
+                    case "1мегабайт":
+                        siz = 7;
+                        break;
+                    case "1гигабайт":
+                        siz = 8;
+                        break;
+                    default:
+                        siz = 1;
+                        break;
+                }
+                
+                data = Encoding.Unicode.GetBytes(siz +":");
+                socket1.Send(data);
+               
+                int counter = 0;
+                if (siz >= 5) {
+                        forset = "";
+                        data = new byte[3024]; // буфер для ответа
+                        bytes = 0; // количество полученных байт
+                        do
+                        {
+                            bytes = socket1.Receive(data, data.Length, 0);
+                            builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+
+                        }
+                        while (socket1.Available > 0);
+                        var dataForMem = builder.ToString().Split('!');
+                        if (dataForMem.Length == 5)
+                        {
+
+                        mainTextBox1.Text += "Количество свободных байтов файла подкачки: " + dataForMem[0] + ". Объем используемой физической памяти в единицах, переданных клиентом : " + dataForMem[1] + ";" + "\n";
+                            System.Threading.Thread.Sleep(2000);
+                        mainTextBox1.Text += "\n" + "Новое значение - Количество свободных байтов файла подкачки: " + dataForMem[3] + ". Объем используемой физической памяти в единицах, переданных клиентом : " + dataForMem[4] + ";" + "\n";
+                            uslov = takeTextBox2.Text;
+                        }
+                        else {
+
+                        mainTextBox1.Text += "Значения не изменились";
+                       // mainTextBox1.Text += "Количество свободных байтов файла подкачки: " + dataForMem[0] + ". Объем используемой физической памяти в единицах, переданных клиентом : " + dataForMem[1]+ ";" + "\n";
+                       //uslov = takeTextBox2.Text;
+
+                    }
+
+                }
+                else {
+                    data = new byte[3024]; // буфер для ответа
+                    bytes = 0; // количество полученных байт
+                    do
+                {
+                    bytes = socket1.Receive(data, data.Length, 0);
+                    builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                    
+                }
+                while (socket1.Available > 0);
+                var dataForMem = builder.ToString().Split('!');
+
+                //mainTextBox1.Text += "Количество свободных байтов файла подкачки: " + dataForMem[0] + ". Объем используемой физической памяти в единицах, переданных клиентом : " + dataForMem[1]+ ";" + "\n";
+                
+                forset = "Количество свободных байтов файла подкачки: " + dataForMem[0] + ". Объем используемой физической памяти в единицах, переданных клиентом : " + dataForMem[1] + "; " + "\n" ;
+                uslov = takeTextBox2.Text;
+                }
+            }
+            
+            // закрываем сокет
+            socket1.Shutdown(SocketShutdown.Both);
+            socket1.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)//send 2
+        {
+            try
+            {
+                Serv1(address, port);
+            }
+            catch (Exception ex)
+            {
+                mainTextBox1.Text = ex.Message + "\n";
+            }
+        }
+
+        private void Serv1(string address, int port)
+        {
+            IPEndPoint ipPoint1 = new IPEndPoint(IPAddress.Parse(address), port);
+            Socket socket1 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            string message;
+            byte[] data;
+            int bytes;
+            StringBuilder builder = new StringBuilder();
+            int h= int.Parse(this.Size.Height.ToString()); 
+            int w= int.Parse(this.Size.Width.ToString()); 
+            // подключаемся к удаленному хосту
+            socket1.Connect(ipPoint1);
+            
+
+            data = Encoding.Unicode.GetBytes(h +":" +w);
+            socket1.Send(data);
+
+            data = new byte[3024]; // буфер для ответа
+            bytes = 0; // количество полученных байт
+            do
+            {
+                bytes = socket1.Receive(data, data.Length, 0);
+                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+
+            }
+            while (socket1.Available > 0);
+            var dataForMem = builder.ToString().Split('!');
+
+            
+            mainTextBox1.Text += "Размер клиентской области "  + dataForMem[0] + " x "+  dataForMem[1] + "\nНазвание видеоадаптера -" + dataForMem[2] +" "+ DateTime.Now.ToString() + "; " + "\n";
+
+        
+
+        // закрываем сокет
+        socket1.Shutdown(SocketShutdown.Both);
+            socket1.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)//stop1
+        {
+            viklSer2();
+        }
+
+        private void button6_Click(object sender, EventArgs e)//stop2
+        {
+            viklServ1();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
+            {
+                Random rnd = new Random();
+                numb = rnd.Next(0, 100000); 
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                timer1.Enabled = true;
+            }
+            else
+            {
+                timer1.Enabled = false;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {   
+            try
+            {
+                Serv2(address, port);
+            }
+            catch (Exception ex)
+            {
+                mainTextBox1.Text = ex.Message + "\n";
+            }
+            if (!forset.Equals(lastMSG)) {
+                mainTextBox1.Text += forset;
+                lastMSG = forset;
+
+            }
+            else
+            {
+                mainTextBox1.Text += "Нет изменений\n";
+            }
+            //mainTextBox1.Text += "lastMSG "+ lastMSG +" forset "+forset+" uslov "+ uslov ;
+            
+            
+        }
+    }
+}
